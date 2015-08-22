@@ -53,9 +53,23 @@ class Liquid:
 		if expire.days > 0:
 			return TRUE
 
+def checkValidDate(date): # check if date is in valid format
+	
+	
+
+
 endDate = datetime.date(2015,12,02)				
 liquid01 = Liquid("Milk",endDate,64)
 
 print liquid01.name
 liquid01.whenExpire()
 liquid01.daysLeft()
+
+inputDate = raw_input("Enter a date in MM-DD-YYYY format with the dashes(-)")
+inputName = raw_input("Enter name of liquid: ")
+imputVolume = raw_input("Enter amount of liquid: ")
+fullDate = inputDate.spilit('-', 3)
+print inputDate
+
+if checkValidDate(inputDate):
+	liquid02 = Liquid(
