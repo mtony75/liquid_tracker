@@ -54,8 +54,20 @@ class Liquid:
 			return TRUE
 
 def checkValidDate(date): # check if date is in valid format
-	print ("Date Check Logic Goes Here")
-	return False
+# If Date is before today the check fails and is a message is sent to the user.
+
+	todayDate = datetime.date.today()
+	if date.year < todayDate.year:
+		return False
+	elif date.year == todayDate.year and date.month < todayDate.month:
+		return False
+	elif date.year == todayDate.year and date.month == todayDate.month and date.day < todayDate.day:
+		return False
+	else:
+		return True
+	
+#	print ("Date Check Logic Goes Here")
+#	return False
 	
 
 
@@ -70,7 +82,7 @@ inputDate = raw_input("Enter a date in MM-DD-YYYY format with the dashes(-)")
 inputName = raw_input("Enter name of liquid: ")
 inputVolume = raw_input("Enter amount of liquid: ")
 fullDateString = inputDate.split('-', 3)
-expirationDate = datetime.date(int(fullDateString[2]),int(fullDateString[1]),int(fullDateString[0]))
+expirationDate = datetime.date(int(fullDateString[2]),int(fullDateString[0]),int(fullDateString[1]))
 
 print expirationDate
 
