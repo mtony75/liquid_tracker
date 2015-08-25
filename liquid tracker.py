@@ -1,5 +1,6 @@
 import datetime
 import string
+import os
 
 # Quick program to track milk and juice expiration 
 
@@ -66,17 +67,15 @@ def checkValidDate(date): # check if date is in valid format
 	else:
 		return True
 	
-#	print ("Date Check Logic Goes Here")
-#	return False
-	
+def inputMenu():# menu to present user with options about liquids	
 
 
-endDate = datetime.date(2015,12,02)				
-liquid01 = Liquid("Milk",endDate,64)
+#endDate = datetime.date(2015,12,02)				
+#liquid01 = Liquid("Milk",endDate,64)
 
-print liquid01.name
-liquid01.whenExpire()
-liquid01.daysLeft()
+#print liquid01.name
+#liquid01.whenExpire()
+#liquid01.daysLeft()
 
 inputDate = raw_input("Enter a date in MM-DD-YYYY format with the dashes(-)")
 inputName = raw_input("Enter name of liquid: ")
