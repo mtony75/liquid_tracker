@@ -67,7 +67,17 @@ def checkValidDate(date): # check if date is in valid format
 	else:
 		return True
 	
-def inputMenu():# menu to present user with options about liquids	
+def inputMenu():# menu to present user with options about liquids
+        print "**************************************************"
+        print "* 1. List Liquids                                *"
+        print "* 2. Pick Liquid                                 *"
+        print "* 3. Purge Expired                               *"
+        print "**************************************************"
+
+def listLiquids(): # Function to list all liquids in inventory
+
+def pickLiquid(): # Function to pick a liquid to perform action on
+                  # i.e. pour, display expire, daysLeft
 
 
 #endDate = datetime.date(2015,12,02)				
