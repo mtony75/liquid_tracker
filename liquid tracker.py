@@ -68,18 +68,31 @@ def checkValidDate(date): # check if date is in valid format
 		return True
 	
 def inputMenu():# menu to present user with options about liquids
-        print "**************************************************"
-        print "* 1. List Liquids                                *"
-        print "* 2. Pick Liquid                                 *"
-        print "* 3. Purge Expired                               *"
-        print "**************************************************"
+	print "**************************************************"
+	print "* 1. Add Liquid                                  *"
+	print "* 2. List Liquids                                *"
+	print "* 3. Pick Liquid                                 *"
+	print "* 4. Purge Expired                               *"
+	print "* 5. Exit                                        *"
+	print "**************************************************"
 
 def listLiquids(): # Function to list all liquids in inventory
+	print ""
+	
+def pickLiquid():
+	print ""
 
-def pickLiquid(): # Function to pick a liquid to perform action on
-                  # i.e. pour, display expire, daysLeft
-
-
+def addLiquid(): # Function to add new liquid to inventory
+	inputDate = raw_input("Enter a date in MM-DD-YYYY format with the dashes(-)")
+	inputName = raw_input("Enter name of liquid: ")
+	inputVolume = raw_input("Enter amount of liquid: ")
+	fullDateString = inputDate.split('-', 3)
+	expirationDate = datetime.date(int(fullDateString[2]),int(fullDateString[0]),int(fullDateString[1]))
+	#print expirationDate
+	if checkValidDate(expirationDate):
+		liquid02 = Liquid(inputName,expirationDate,int(inputVolume))
+	else:
+		print ("Not a valid date")
 #endDate = datetime.date(2015,12,02)				
 #liquid01 = Liquid("Milk",endDate,64)
 
@@ -87,15 +100,18 @@ def pickLiquid(): # Function to pick a liquid to perform action on
 #liquid01.whenExpire()
 #liquid01.daysLeft()
 
-inputDate = raw_input("Enter a date in MM-DD-YYYY format with the dashes(-)")
-inputName = raw_input("Enter name of liquid: ")
-inputVolume = raw_input("Enter amount of liquid: ")
-fullDateString = inputDate.split('-', 3)
-expirationDate = datetime.date(int(fullDateString[2]),int(fullDateString[0]),int(fullDateString[1]))
 
-print expirationDate
 
-if checkValidDate(expirationDate):
-	liquid02 = Liquid(inputName,expirationDate,int(inputVolume))
-else:
-	print ("Not a valid date")
+
+
+
+	
+selection = ""
+while selection != "Exit":
+	os.system('cls')
+	inputMenu()
+	selection = int(raw_input())
+	if selection == 1 :
+		addLiquid()
+
+
