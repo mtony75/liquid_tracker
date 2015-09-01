@@ -93,25 +93,30 @@ def addLiquid(): # Function to add new liquid to inventory
 		liquid02 = Liquid(inputName,expirationDate,int(inputVolume))
 	else:
 		print ("Not a valid date")
+		return False
+	return liquid02
+	
 #endDate = datetime.date(2015,12,02)				
 #liquid01 = Liquid("Milk",endDate,64)
 
 #print liquid01.name
 #liquid01.whenExpire()
 #liquid01.daysLeft()
-
-
-
-
-
-
 	
 selection = ""
+liquidInventory = []
+
 while selection != "Exit":
 	os.system('cls')
 	inputMenu()
 	selection = int(raw_input())
 	if selection == 1 :
-		addLiquid()
+		liquidInventory.append(addLiquid())
+		raw_input()
+	if selection == 2 :
+		for x in liquidInventory:
+			print x.name
+			raw_input()
+		
 
 
