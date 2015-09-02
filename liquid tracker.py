@@ -37,7 +37,7 @@ class Liquid:
 		self.__isLeft = capacity
 	
 	def whenExpire(self): # shows when the expiration date is without exposing the value outside class
-		print "The expiration date of the {} is {}".format(self.name,self.__expire)
+		return self.__expire
 	
 	def pour(self, amount): # amount in ounces to be removed from liquid
 		__capacity = __capacity - amount
@@ -53,6 +53,9 @@ class Liquid:
 		expire = __expire - now
 		if expire.days > 0:
 			return TRUE
+			
+	def isLeft(self):
+		return self.__capacity
 
 def checkValidDate(date): # check if date is in valid format
 # If Date is before today the check fails and is a message is sent to the user.
@@ -76,8 +79,9 @@ def inputMenu():# menu to present user with options about liquids
 	print "* 5. Exit                                        *"
 	print "**************************************************"
 
-def listLiquids(): # Function to list all liquids in inventory
-	print ""
+def listLiquids(inventory): # Function to list all liquids in inventory
+	for x in liquidInventory:
+			print "{}, {} oz, expires {}".format(x.name,x.isLeft(),x.whenExpire())
 	
 def pickLiquid():
 	print ""
@@ -112,11 +116,9 @@ while selection != "Exit":
 	selection = int(raw_input())
 	if selection == 1 :
 		liquidInventory.append(addLiquid())
-		raw_input()
 	if selection == 2 :
-		for x in liquidInventory:
-			print x.name
-			raw_input()
+		listLiquids(liquidInventory)
+		raw_input()
 		
 
 
