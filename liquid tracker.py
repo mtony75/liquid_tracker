@@ -52,7 +52,7 @@ class Liquid:
 		now = datetime.date.today()
 		expire = __expire - now
 		if expire.days > 0:
-			return TRUE
+			return True
 			
 	def isLeft(self):
 		return self.__capacity
@@ -83,8 +83,12 @@ def listLiquids(inventory): # Function to list all liquids in inventory
 	for x in liquidInventory:
 			print "{}, {} oz, expires {}".format(x.name,x.isLeft(),x.whenExpire())
 	
-def pickLiquid():
-	print ""
+def pickLiquid(inventory):
+	selection = ""
+	while selecton != "end":
+		listLiquids(inventory)
+		selection = raw_input("Please pick a liquid or type end to exit: ")
+		
 
 def addLiquid(): # Function to add new liquid to inventory
 	inputDate = raw_input("Enter a date in MM-DD-YYYY format with the dashes(-)")
